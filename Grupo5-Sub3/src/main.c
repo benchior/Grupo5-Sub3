@@ -50,10 +50,10 @@ void converter_velocidade() {
     printf("%.2f km/h = %.2f m/s = %.2f mph\n", kmh, ms, mph);
 }
 
-// Função de conversão de potência
+// Função de conversão de potência feita por Leonardo Bonifácio
 void converter_potencia() {
     float watts = 0, quilowatts = 0, cavalos_vapor = 0;
-    int opcao_origem, opcao_destino;
+    int opcao_origem = 0, opcao_destino = 0;
 
     printf("Escolha a unidade de entrada:\n");
     printf("1 - Watts\n");
