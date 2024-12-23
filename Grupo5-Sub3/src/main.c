@@ -50,15 +50,84 @@ void converter_velocidade() {
     printf("%.2f km/h = %.2f m/s = %.2f mph\n", kmh, ms, mph);
 }
 
-// Funções de conversão de potência
+// Função de conversão de potência
 void converter_potencia() {
-    float watts, quilowatts, cavalos_vapor;
-    printf("Digite o valor em watts: ");
-    scanf("%f", &watts);
-    quilowatts = watts / 1000;
-    cavalos_vapor = watts / 735.5;
-    printf("%.2f watts = %.2f quilowatts = %.2f cavalos-vapor\n", watts, quilowatts, cavalos_vapor);
+    float watts = 0, quilowatts = 0, cavalos_vapor = 0;
+    int opcao_origem, opcao_destino;
+
+    printf("Escolha a unidade de entrada:\n");
+    printf("1 - Watts\n");
+    printf("2 - Quilowatts\n");
+    printf("3 - Cavalos-vapor\n");
+    printf("Opção: ");
+    scanf("%d", &opcao_origem);
+
+    // Recebe o valor baseado na unidade de origem com validação para valores negativos
+    switch (opcao_origem) {
+        case 1:
+            printf("Digite o valor em watts: ");
+            scanf("%f", &watts);
+            if (watts < 0) {
+                printf("Erro: O valor em watts não pode ser negativo.\n");
+                return;
+            }
+            quilowatts = watts / 1000;
+            cavalos_vapor = watts / 735.5;
+            break;
+        case 2:
+            printf("Digite o valor em quilowatts: ");
+            scanf("%f", &quilowatts);
+            if (quilowatts < 0) {
+                printf("Erro: O valor em quilowatts não pode ser negativo.\n");
+                return;
+            }
+            watts = quilowatts * 1000;
+            cavalos_vapor = watts / 735.5;
+            break;
+        case 3:
+            printf("Digite o valor em cavalos-vapor: ");
+            scanf("%f", &cavalos_vapor);
+            if (cavalos_vapor < 0) {
+                printf("Erro: O valor em cavalos-vapor não pode ser negativo.\n");
+                return;
+            }
+            watts = cavalos_vapor * 735.5;
+            quilowatts = watts / 1000;
+            break;
+        default:
+            printf("Opção inválida!\n");
+            return;
+    }
+
+    // Pergunta para qual unidade deseja converter
+    printf("Escolha a unidade de destino ou todas:\n");
+    printf("1 - Watts\n");
+    printf("2 - Quilowatts\n");
+    printf("3 - Cavalos-vapor\n");
+    printf("4 - Todas as unidades\n");
+    printf("Opção: ");
+    scanf("%d", &opcao_destino);
+
+    // Exibe os resultados com base na unidade escolhida
+    switch (opcao_destino) {
+        case 1:
+            printf("Resultado: %.2f watts\n", watts);
+            break;
+        case 2:
+            printf("Resultado: %.2f quilowatts\n", quilowatts);
+            break;
+        case 3:
+            printf("Resultado: %.2f cavalos-vapor\n", cavalos_vapor);
+            break;
+        case 4:
+            printf("Resultado: %.2f watts = %.2f quilowatts = %.2f cavalos-vapor\n", 
+                   watts, quilowatts, cavalos_vapor);
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
 }
+
 
 // Funções de conversão de área
 void converter_area() {
