@@ -26,7 +26,7 @@ void converterMassa(){
     printf("Escolha a conversão que deseja fazer (1-6):");
     scanf("%d",&opcao);
     
-    if(opcao>=1 || opcao<=6){
+    if(opcao>=1 && opcao<=6){
         printf("Digite o valor da massa:");
         scanf("%lf", &valor);
 
@@ -52,8 +52,7 @@ void converterMassa(){
     }
 
     }else{
-        printf("Opção Invalida!");
-        return;
+        printf("Opção Invalida!\n");
     }
 
 
