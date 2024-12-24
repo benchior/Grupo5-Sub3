@@ -32,12 +32,29 @@ void converter_volume() {
 
 // Funções de conversão de temperatura
 void converter_temperatura() {
-    float celsius, fahrenheit, kelvin;
-    printf("Digite o valor em Celsius: ");
-    scanf("%f", &celsius);
-    fahrenheit = (celsius * 9/5) + 32;
-    kelvin = celsius + 273.15;
-    printf("%.2f Celsius = %.2f Fahrenheit = %.2f Kelvin\n", celsius, fahrenheit, kelvin);
+    float valor; 
+    int resp;
+    //Adição de uma interface de escolha para as conversões
+    printf("\nDeseja converter:\n"); 
+    printf("1-Fahrenheit para Celsius\n");
+    printf("2-Fahrenheit para Kelvin\n");
+    printf("3-Celsius para Fahrenheit\n");
+    printf("4-Celsius para Kelvin\n");
+    printf("5-Kelvin para Fahrenheit\n");
+    printf("6-Kelvin para Celsius\n");
+    scanf("%d", &resp);
+    printf("Digite o valor a ser convertido: ");
+    scanf("%f", &valor);
+    //SwitchCase com a lógica de conversão
+    switch(resp) {
+        case 1: printf("%.2f °C\n", (valor - 32) / 1.8); break;
+        case 2: printf("%.2f K\n", (valor + 459.67) * 5 / 9); break;
+        case 3: printf("%.2f °F\n", (valor * 1.8) + 32); break;
+        case 4: printf("%.2f K\n", valor + 273.15); break;
+        case 5: printf("%.2f °F\n", (valor * 9 / 5) - 459.67); break;
+        case 6: printf("%.2f °C\n", valor - 273.15); break;
+        default: printf("Opção inválida!\n"); break;
+    }
 }
 
 // Funções de conversão de velocidade
