@@ -36,7 +36,7 @@ void converter_comprimento() {
     }
 }
 
-// Funções de conversão de massa
+// Funções de conversão de massa por João Vitor
 void converter_massa(){
     int opcao=-1;
     double valor, resultado;
