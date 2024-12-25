@@ -2,12 +2,38 @@
 
 // Funções de conversão de comprimento
 void converter_comprimento() {
-    float metros, centimetros, milimetros;
-    printf("Digite o valor em metros: ");
-    scanf("%f", &metros);
-    centimetros = metros * 100;
-    milimetros = metros * 1000;
-    printf("%.2f metros = %.2f centimetros = %.2f milimetros\n", metros, centimetros, milimetros);
+    int op;
+    float milimetro, centimetro, metro;
+
+    printf("Escolha a unidade de medida que deseja converter para as outras.\n");
+    puts("(1) para converter de milimetro para as demais unidades.");
+    puts("(2) para converter de centimetro para as demais unidades.");
+    printf("(3) para converter de metro para as demais unidades.\n>");
+    scanf("%d", &op);  
+    
+    switch (op) {
+        case 1: {
+            printf("Digite a quantidade de milimetros que deseja converter:\n>");
+            scanf("%f", &milimetro);
+            printf("%.2f milimetros sao %.2f centimetros ou %.2f metros.\n", milimetro, milimetro/10, milimetro/1000);
+            break;
+        }
+        case 2: {
+            printf("Digite a quantidade de centimetros que deseja converter:\n>");
+            scanf("%f", &centimetro);
+            printf("%.2f centimetros sao %.2f milimetros ou %.2f metros.\n", centimetro, centimetro*10, centimetro/100);
+            break;
+        }
+        case 3: {
+            printf("Digite a quantidade de metros que deseja converter:\n>");
+            scanf("%f", &metro);
+            printf("%.2f metros sao %.2f centimetros ou %.2f milimetros.\n", metro, metro*100, metro*1000);
+            break;
+        }
+        default:
+            printf("Opcao invalida! Por favor, escolha uma opcao entre 1 e 3.\n");
+            break;
+    }
 }
 
 // Funções de conversão de massa
