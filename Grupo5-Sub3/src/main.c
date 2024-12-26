@@ -248,15 +248,92 @@ void converter_tempo() {
 
 // Funções de conversão de dados
 void converter_dados() {
-    float bits, bytes, kilobytes, megabytes, gigabytes, terabytes;
-    printf("Digite o valor em bytes: ");
-    scanf("%f", &bytes);
-    bits = bytes * 8;
-    kilobytes = bytes / 1024;
-    megabytes = kilobytes / 1024;
-    gigabytes = megabytes / 1024;
-    terabytes = gigabytes / 1024;
-    printf("%.2f bytes = %.2f bits = %.2f KB = %.2f MB = %.2f GB = %.2f TB\n", bytes, bits, kilobytes, megabytes, gigabytes, terabytes);
+    int op;
+    double valor, bits, bytes, kilobytes, megabytes, gigabytes, terabytes;
+
+    printf("Escolha a unidade de medida que deseja converter para as outras.\n");
+    puts("(1) para converter de bits para as demais unidades.");
+    puts("(2) para converter de bytes para as demais unidades.");
+    puts("(3) para converter de kilobytes (KB) para as demais unidades.");
+    puts("(4) para converter de megabytes (MB) para as demais unidades.");
+    puts("(5) para converter de gigabytes (GB) para as demais unidades.");
+    puts("(6) para converter de terabytes (TB) para as demais unidades.");
+    printf(">");
+    scanf("%d", &op);  
+    
+    switch (op) {
+        case 1: {
+            printf("Digite a quantidade de bits que deseja converter:\n>");
+            scanf("%lf", &valor);
+            bits = valor;
+            bytes = bits / 8;
+            kilobytes = bytes / 1024;
+            megabytes = kilobytes / 1024;
+            gigabytes = megabytes / 1024;
+            terabytes = gigabytes / 1024;
+            break;
+        }
+        case 2: {
+            printf("Digite a quantidade de bytes que deseja converter:\n>");
+            scanf("%lf", &valor);
+            bytes = valor;
+            bits = bytes * 8;
+            kilobytes = bytes / 1024;
+            megabytes = kilobytes / 1024;
+            gigabytes = megabytes / 1024;
+            terabytes = gigabytes / 1024;
+            break;
+        }
+        case 3: {
+            printf("Digite a quantidade de kilobytes (KB) que deseja converter:\n>");
+            scanf("%lf", &valor);
+            kilobytes = valor;
+            bytes = kilobytes * 1024;
+            bits = bytes * 8;
+            megabytes = kilobytes / 1024;
+            gigabytes = megabytes / 1024;
+            terabytes = gigabytes / 1024;
+            break;
+        }
+        case 4: {
+            printf("Digite a quantidade de megabytes (MB) que deseja converter:\n>");
+            scanf("%lf", &valor);
+            megabytes = valor;
+            kilobytes = megabytes * 1024;
+            bytes = kilobytes * 1024;
+            bits = bytes * 8;
+            gigabytes = megabytes / 1024;
+            terabytes = gigabytes / 1024;
+            break;
+        }
+        case 5: {
+            printf("Digite a quantidade de gigabytes (GB) que deseja converter:\n>");
+            scanf("%lf", &valor);
+            gigabytes = valor;
+            megabytes = gigabytes * 1024;
+            kilobytes = megabytes * 1024;
+            bytes = kilobytes * 1024;
+            bits = bytes * 8;
+            terabytes = gigabytes / 1024;
+            break;
+        }
+        case 6: {
+            printf("Digite a quantidade de terabytes (TB) que deseja converter:\n>");
+            scanf("%lf", &valor);
+            terabytes = valor;
+            gigabytes = terabytes * 1024;
+            megabytes = gigabytes * 1024;
+            kilobytes = megabytes * 1024;
+            bytes = kilobytes * 1024;
+            bits = bytes * 8;
+            break;
+        }
+        default:
+            printf("Opção inválida! Por favor, escolha uma opção entre 1 e 6.\n");
+            return;
+    }
+
+    printf("%.2f bits = %.2f bytes = %.2f KB = %.2f MB = %.2f GB = %.2f TB\n", bits, bytes, kilobytes, megabytes, gigabytes, terabytes);
 }
 
 // Interface de usuário
